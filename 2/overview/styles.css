@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+.graph-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.bar {
+    width: 50px;
+    margin: 0 10px;
+    text-align: center;
+    transition: height 0.5s;
+}
+
+.bar div {
+    background-color: #4CAF50;
+    width: 100%;
+    color: white;
+    line-height: 2;
+    transition: height 0.5s;
+}
+
+.bar-rating div {
+    background-color: #2196F3;
+}
+
+.sort-buttons {
+    margin-bottom: 20px;
+}
+
+.sort-buttons button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
