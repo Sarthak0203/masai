@@ -1,52 +1,43 @@
-function Item(id , name , quantity , price){
-    this.id = id;
-    this.name = name;
-    this.quantity = quantity;
-    this.price = price;
+let numbers = [5 , 3 ,8 ,1 , 2];
+function addNumber(array , number){
+    array.push(number);
 }
-function additem(inventory , item){
-    inventory.push(item);
-}
-function updateitem(inventory , id , newdetails){
-    const item = inventory.find(item => item.id == id);
-    if(item){
-        Object.assign(item , newdetails);
-    }
-    else{
-        console.log(`Item with ${id} is not found.`);
+
+function removeNumber(array , number){
+    const index = array.indexOf(number);
+    if(index!== -1){
+        array.splice(index , 1);
     }
 }
-function deleteitem(inventory , id){
-    const index = inventory.findIndex(item => item.id == id);
-    if(index!=-1){
-        inventory.splice(index,1);
-    } 
-    else{
-        console.log(`Item with ${id} not found.`);
+
+function sortNumbers(array){
+    return array.sort((a,b)=> a-b);
+}
+function calculateSum(array) {
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
     }
+    return sum;
 }
-function getItem(inventory , id){
-    return inventory.find(item => item.id == id);
+function calculateAvg(array){
+    if(array.length == 0) return 0;
+    const addition =  calculateSum(array)
+    return addition/array.length;
 }
-function printInventory(inventory){
-    console.log("Current Inventory");
-    console.log(JSON.stringify(inventory, null, 2));
-}
-let inventory = [
-    new Item(1,'Apple',10,0.5),
-    new Item(2,'Banana',20,0.2)
-];
-console.log("Initial Inventory")
-printInventory(inventory)
+console.log("Initial array: ", numbers);
 
-additem(inventory , new Item(3, 'Orange', 15, 0.7));
-console.log("\n After adding item : ")
-printInventory(inventory)
+addNumber(numbers , 4)
+console.log("After adding 4: ", numbers);
 
-updateitem(inventory , 2 , {quantity : 30})
-console.log("\n After updating item : ")
-printInventory(inventory)
+removeNumber(numbers , 3)
+console.log("After removing 3: ", numbers);
 
-deleteitem(inventory, 2);
-console.log("\nAfter deleting item:");
-printInventory(inventory);
+const sortedarray =  sortNumbers(numbers)
+console.log("Sorted Array: ", sortedarray);
+
+const add = calculateSum(numbers)
+console.log("Sum of numbers: ", add);
+
+const avg = calculateAvg(numbers)
+console.log("Average of numbers: ", avg);
